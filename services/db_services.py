@@ -67,5 +67,13 @@ class DatabaseService:
             return response.data[0]
         return None
 
+    def update_total_calorias(self, scan_id: int, total_calorias: float):
+        data = {"total_calorias": total_calorias}
+        response = self.supabase.table("historial_escaneos").update(data).eq("id", scan_id).execute()
+
+        if response.data and len(response.data) > 0:
+            return response.data[0]
+        return None
+
 # Esta es la variable que tu router está intentando importar
 db_client = DatabaseService()

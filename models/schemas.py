@@ -24,6 +24,7 @@ class HistorialLectura(BaseModel):
     usuario_id: int
     fecha_escaneo: datetime
     temperatura: Optional[float] = None
+    total_calorias: Optional[float] = None
     # Agregamos los campos nutricionales
     proteina: Optional[float] = None
     fibra: Optional[float] = None
@@ -36,3 +37,11 @@ class HistorialLectura(BaseModel):
 class ScanCreateRequest(BaseModel):
     usuario_id: int
     temperatura: float
+
+class CaloriasRequest(BaseModel):
+    proteina_name: str
+    proteina_peso: float
+    carbohidratos_name: str
+    carbohidratos_peso: float
+    fibra_name: str
+    fibra_peso: float
